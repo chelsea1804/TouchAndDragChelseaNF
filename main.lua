@@ -7,6 +7,9 @@
 display.setStatusBar(display.HiddenStatusBar)
 
 -- local variables
+local jazzySound = audio.loadSound( "Sounds/jazzy.mp3")
+local jazzySoundChannel
+
 local backgroundImage = display.newImageRect("Images/background.png", 2048, 1536)
 local pinkGirl = display.newImageRect("Images/girl1.png", 150, 150)
 local pinkGirlWidth = pinkGirl.width 
@@ -24,7 +27,6 @@ local shipHeight = ship.height
 local alreadyTouchedPinkGirl = false
 local alreadyTouchedHatGirl = false
 local alreadyTouchedShip = false
-
 
 
 -- set the initial x and y position of myImage
@@ -107,6 +109,8 @@ local function ShipListener(touch)
 		ship.y = touch.y
 	end
 
+		
+
 	if (touch.phase == "ended") then
 		alreadyTouchedShip = false
 		alreadyTouchedHatGirl = false
@@ -115,3 +119,4 @@ end
 
 -- add the respective listeners to each object
 ship:addEventListener("touch", ShipListener)
+
